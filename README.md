@@ -45,7 +45,7 @@ You can add a script to your package.json for running prettier on all your contr
   }
 ```
 
-Or you can use it as part of your linting to check that all your code is prettified:
+You can add a script to your package.json for running prettier on all your contracts:
 
 ```Bash
 "lint": "prettier --list-different 'contracts/**/*.sol'"
