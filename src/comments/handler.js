@@ -1,11 +1,10 @@
 const {
   handleOwnLineComment,
   handleEndOfLineComment,
-  handleRemainingComment,
-  isBlockComment
+  handleRemainingComment
 } = require('../prettier-comments/language-js/comments');
 
-const handleContractDefinitionComments = require('./handlers/ContractDefinition');
+const handlers = require('./handlers');
 
 function solidityHandleOwnLineComment(
   comment,
@@ -15,17 +14,17 @@ function solidityHandleOwnLineComment(
   isLastComment
 ) {
   const { precedingNode, enclosingNode, followingNode } = comment;
-  const handlerArguments = [
+  const handlerArguments = {
     text,
     precedingNode,
     enclosingNode,
     followingNode,
     comment,
     options
-  ];
+  };
 
   if (
-    handleContractDefinitionComments(...handlerArguments) ||
+    handlers.some((handler) => handler(handlerArguments)) ||
     handleOwnLineComment(comment, text, options, ast, isLastComment)
   ) {
     return true;
@@ -41,17 +40,17 @@ function solidityHandleEndOfLineComment(
   isLastComment
 ) {
   const { precedingNode, enclosingNode, followingNode } = comment;
-  const handlerArguments = [
+  const handlerArguments = {
     text,
     precedingNode,
     enclosingNode,
     followingNode,
     comment,
     options
-  ];
+  };
 
   if (
-    handleContractDefinitionComments(...handlerArguments) ||
+    handlers.some((handler) => handler(handlerArguments)) ||
     handleEndOfLineComment(comment, text, options, ast, isLastComment)
   ) {
     return true;
@@ -67,22 +66,26 @@ function solidityHandleRemainingComment(
   isLastComment
 ) {
   const { precedingNode, enclosingNode, followingNode } = comment;
-  const handlerArguments = [
+  const handlerArguments = {
     text,
     precedingNode,
     enclosingNode,
     followingNode,
     comment,
     options
-  ];
+  };
 
   if (
-    handleContractDefinitionComments(...handlerArguments) ||
+    handlers.some((handler) => handler(handlerArguments)) ||
     handleRemainingComment(comment, text, options, ast, isLastComment)
   ) {
     return true;
   }
   return false;
+}
+
+function isBlockComment(comment) {
+  return comment.type === 'BlockComment';
 }
 
 module.exports = {
