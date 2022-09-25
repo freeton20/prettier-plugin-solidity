@@ -1,6 +1,7 @@
 const {
   doc: {
-    builders: { group, join, line }
+    // builders: { group, join, line }
+    builders: { join }
   }
 } = require('prettier');
 
@@ -17,7 +18,8 @@ const {
 //     : '';
 
 const TryStatement = {
-  print: ({ node, path, print }) => {
+  // print: ({ node, path, print }) => {
+  print: ({ path, print }) => {
     let parts = [
       'try',
       ' ',

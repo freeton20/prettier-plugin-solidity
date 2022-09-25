@@ -13,7 +13,9 @@ const {
   
   const RepeatStatement = {
     print: ({ node, path, print }) => [
-      group(['repeat (', printSeparatedItem(path.call(print, 'condition')), ')']),
+     'repeat (',
+     printSeparatedItem(path.call(print, 'condition')),
+     ')',
       printBody(node, path, print)
     ]
   };
