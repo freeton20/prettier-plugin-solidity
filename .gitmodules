@@ -1,0 +1,16 @@
+[submodule "solidityTests/samples"]
+	path = solidityTests/samples
+	url = https://github.com/tonlabs/samples.git
+	branch = master
+[submodule "solidityTests/debots"]
+	path = solidityTests/debots
+	url = https://github.com/tonlabs/debots.git
+	branch = main
+[submodule "solidityTests/tip3"]
+	path = solidityTests/tip3
+	url = https://github.com/broxus/tip3.git
+	branch = master
+[submodule "solidityTests/tonix"]
+	path = solidityTests/tonix
+	url = https://github.com/tonlabs/tonix.git
+	branch = master
