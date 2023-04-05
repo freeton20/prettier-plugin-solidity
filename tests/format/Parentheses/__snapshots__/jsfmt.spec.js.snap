@@ -8,7 +8,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract AddNoParentheses {
     function addAdd(uint256 a, uint256 b, uint256 c)
@@ -102,7 +102,7 @@ contract AddNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract AddNoParentheses {
     function addAdd(
@@ -150,7 +150,7 @@ contract AddNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a + b**c;
+        return a + b ** c;
     }
 
     function addShiftL(
@@ -205,7 +205,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitAndNoParentheses {
     function bitAndAdd(uint256 a, uint256 b, uint256 c)
@@ -299,7 +299,7 @@ contract BitAndNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitAndNoParentheses {
     function bitAndAdd(
@@ -347,7 +347,7 @@ contract BitAndNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a & (b**c);
+        return a & (b ** c);
     }
 
     function bitAndShiftL(
@@ -402,7 +402,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitOrNoParentheses {
     function bitOrAdd(uint256 a, uint256 b, uint256 c)
@@ -496,7 +496,7 @@ contract BitOrNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitOrNoParentheses {
     function bitOrAdd(
@@ -544,7 +544,7 @@ contract BitOrNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a | (b**c);
+        return a | (b ** c);
     }
 
     function bitOrShiftL(
@@ -599,7 +599,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitXorNoParentheses {
     function bitXorAdd(uint256 a, uint256 b, uint256 c)
@@ -693,7 +693,7 @@ contract BitXorNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract BitXorNoParentheses {
     function bitXorAdd(
@@ -741,7 +741,7 @@ contract BitXorNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a ^ (b**c);
+        return a ^ (b ** c);
     }
 
     function bitXorShiftL(
@@ -796,7 +796,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract DivNoParentheses {
     function divAdd(uint256 a, uint256 b, uint256 c)
@@ -890,7 +890,7 @@ contract DivNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract DivNoParentheses {
     function divAdd(
@@ -938,7 +938,7 @@ contract DivNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a / b**c;
+        return a / b ** c;
     }
 
     function divShiftL(
@@ -993,7 +993,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ExpNoParentheses {
     function expAdd(uint256 a, uint256 b, uint256 c)
@@ -1087,7 +1087,7 @@ contract ExpNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ExpNoParentheses {
     function expAdd(
@@ -1095,7 +1095,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**b + c;
+        return a ** b + c;
     }
 
     function expSub(
@@ -1103,7 +1103,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**b - c;
+        return a ** b - c;
     }
 
     function expMul(
@@ -1111,7 +1111,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**b * c;
+        return a ** b * c;
     }
 
     function expDiv(
@@ -1119,7 +1119,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**b / c;
+        return a ** b / c;
     }
 
     function expMod(
@@ -1127,7 +1127,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**b % c;
+        return a ** b % c;
     }
 
     function expExp(
@@ -1135,7 +1135,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a**(b**c);
+        return a ** (b ** c);
     }
 
     function expShiftL(
@@ -1143,7 +1143,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return (a**b) << c;
+        return (a ** b) << c;
     }
 
     function expShiftR(
@@ -1151,7 +1151,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return (a**b) >> c;
+        return (a ** b) >> c;
     }
 
     function expBitAnd(
@@ -1159,7 +1159,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return (a**b) & c;
+        return (a ** b) & c;
     }
 
     function expBitOr(
@@ -1167,7 +1167,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return (a**b) | c;
+        return (a ** b) | c;
     }
 
     function expBitXor(
@@ -1175,7 +1175,7 @@ contract ExpNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return (a**b) ^ c;
+        return (a ** b) ^ c;
     }
 }
 
@@ -1190,7 +1190,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract LogicNoParentheses {
     function orOr(bool a, bool b, bool c) public pure returns (bool) {
@@ -1212,38 +1212,22 @@ contract LogicNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract LogicNoParentheses {
-    function orOr(
-        bool a,
-        bool b,
-        bool c
-    ) public pure returns (bool) {
+    function orOr(bool a, bool b, bool c) public pure returns (bool) {
         return a || b || c;
     }
 
-    function orAnd(
-        bool a,
-        bool b,
-        bool c
-    ) public pure returns (bool) {
+    function orAnd(bool a, bool b, bool c) public pure returns (bool) {
         return a || (b && c);
     }
 
-    function andOr(
-        bool a,
-        bool b,
-        bool c
-    ) public pure returns (bool) {
+    function andOr(bool a, bool b, bool c) public pure returns (bool) {
         return (a && b) || c;
     }
 
-    function andAnd(
-        bool a,
-        bool b,
-        bool c
-    ) public pure returns (bool) {
+    function andAnd(bool a, bool b, bool c) public pure returns (bool) {
         return a && b && c;
     }
 }
@@ -1259,7 +1243,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ModNoParentheses {
     function modAdd(uint256 a, uint256 b, uint256 c)
@@ -1353,7 +1337,7 @@ contract ModNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ModNoParentheses {
     function modAdd(
@@ -1401,7 +1385,7 @@ contract ModNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a % b**c;
+        return a % b ** c;
     }
 
     function modShiftL(
@@ -1456,7 +1440,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract MulNoParentheses {
     function mulAdd(uint256 a, uint256 b, uint256 c)
@@ -1550,7 +1534,7 @@ contract MulNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract MulNoParentheses {
     function mulAdd(
@@ -1598,7 +1582,7 @@ contract MulNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a * b**c;
+        return a * b ** c;
     }
 
     function mulShiftL(
@@ -1653,7 +1637,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ShiftLNoParentheses {
     function shiftLAdd(uint256 a, uint256 b, uint256 c)
@@ -1747,7 +1731,7 @@ contract ShiftLNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ShiftLNoParentheses {
     function shiftLAdd(
@@ -1795,7 +1779,7 @@ contract ShiftLNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a << (b**c);
+        return a << (b ** c);
     }
 
     function shiftLShiftL(
@@ -1850,7 +1834,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ShiftRNoParentheses {
     function shiftRAdd(uint256 a, uint256 b, uint256 c)
@@ -1944,7 +1928,7 @@ contract ShiftRNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract ShiftRNoParentheses {
     function shiftRAdd(
@@ -1992,7 +1976,7 @@ contract ShiftRNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a >> (b**c);
+        return a >> (b ** c);
     }
 
     function shiftRShiftL(
@@ -2047,7 +2031,7 @@ printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract SubNoParentheses {
     function subAdd(uint256 a, uint256 b, uint256 c)
@@ -2141,7 +2125,7 @@ contract SubNoParentheses {
 
 =====================================output=====================================
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.12;
+pragma solidity 0.8.17;
 
 contract SubNoParentheses {
     function subAdd(
@@ -2189,7 +2173,7 @@ contract SubNoParentheses {
         uint256 b,
         uint256 c
     ) public pure returns (uint256) {
-        return a - b**c;
+        return a - b ** c;
     }
 
     function subShiftL(

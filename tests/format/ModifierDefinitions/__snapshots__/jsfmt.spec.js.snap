@@ -11,18 +11,22 @@ contract ModifierDefinitions {
   modifier oneParam(uint a) {}
   modifier twoParams(uint a,uint b) {}
   modifier threeParams(uint a,uint b   ,uint c) {}
+  modifier test() virtual;
+  modifier test() virtual {}
 }
 
 =====================================output=====================================
 contract ModifierDefinitions {
     modifier noParams() {}
-    modifier oneParam(uint256 a) {}
-    modifier twoParams(uint256 a, uint256 b) {}
+    modifier oneParam(uint a) {}
+    modifier twoParams(uint a, uint b) {}
     modifier threeParams(
-        uint256 a,
-        uint256 b,
-        uint256 c
+        uint a,
+        uint b,
+        uint c
     ) {}
+    modifier test() virtual;
+    modifier test() virtual {}
 }
 
 ================================================================================

@@ -29,7 +29,7 @@ contract Example {
 
     mapping(address => mapping(address => BalanceState)) private balanceStates;
 
-    function example(address token, uint256 amount) public {
+    function example(address token, uint amount) public {
         balanceStates[msg.sender][token].balance = balanceStates[msg.sender][
             token
         ].balance.sub(amount);
@@ -88,13 +88,13 @@ pragma solidity 0.6.12;
 
 contract Bug {
     // This is a comment
-    uint256 public hello;
+    uint public hello;
 
     // Another comment
-    uint256 public bigNum = 100_000;
+    uint public bigNum = 100_000;
 
     // This will disappear
-    uint256 public magic;
+    uint public magic;
 }
 
 ================================================================================
@@ -156,12 +156,10 @@ contract Issue564 {
 
 =====================================output=====================================
 contract Issue564 {
-    function isAuthorized(bytes32 serviceId, address client)
-        external
-        view
-        override
-        returns (bool)
-    {
+    function isAuthorized(
+        bytes32 serviceId,
+        address client
+    ) external view override returns (bool) {
         WhitelistStatus
             storage whitelistStatus = serviceIdToClientToWhitelistStatus[
                 serviceId
@@ -169,6 +167,20 @@ contract Issue564 {
         return true;
     }
 }
+
+================================================================================
+`;
+
+exports[`Issue799.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+struct EmptyStruct {}
+
+=====================================output=====================================
+struct EmptyStruct {}
 
 ================================================================================
 `;

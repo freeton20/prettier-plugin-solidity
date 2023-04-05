@@ -173,6 +173,7 @@ contract FunctionDefinitions {
   }
 
   fallback() external payable virtual {}
+  fallback(bytes calldata _input) external {}
   receive() external payable virtual {}
 }
 
@@ -180,23 +181,23 @@ contract FunctionDefinitions {
 interface FunctionInterfaces {
     function noParamsNoModifiersNoReturns();
 
-    function oneParam(uint256 x);
+    function oneParam(uint x);
 
     function oneModifier() modifier1;
 
-    function oneReturn() returns (uint256 y1);
+    function oneReturn() returns (uint y1);
 
     function manyParams(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     );
 
     function manyModifiers()
@@ -213,63 +214,46 @@ interface FunctionInterfaces {
 
     function manyReturns()
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         );
 
     function someParamsSomeModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     ) modifier1 modifier2 modifier3;
 
     function someParamsSomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
-    )
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        );
+        uint x1,
+        uint x2,
+        uint x3
+    ) returns (uint y1, uint y2, uint y3);
 
     function someModifiersSomeReturns()
         modifier1
         modifier2
         modifier3
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        );
+        returns (uint y1, uint y2, uint y3);
 
     function someParamSomeModifiersSomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
-    )
-        modifier1
-        modifier2
-        modifier3
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        );
+        uint x1,
+        uint x2,
+        uint x3
+    ) modifier1 modifier2 modifier3 returns (uint y1, uint y2, uint y3);
 
     function someParamsManyModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     )
         modifier1
         modifier2
@@ -283,65 +267,60 @@ interface FunctionInterfaces {
         modifier10;
 
     function someParamsManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     )
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         );
 
     function manyParamsSomeModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     ) modifier1 modifier2 modifier3;
 
     function manyParamssomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
-    )
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        );
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
+    ) returns (uint y1, uint y2, uint y3);
 
     function manyParamsManyModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         modifier1
         modifier2
@@ -355,41 +334,41 @@ interface FunctionInterfaces {
         modifier10;
 
     function manyParamsManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         );
 
     function manyParamsManyModifiersManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         modifier1
         modifier2
@@ -402,16 +381,16 @@ interface FunctionInterfaces {
         modifier9
         modifier10
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         );
 
     function modifierOrderCorrect01()
@@ -421,7 +400,7 @@ interface FunctionInterfaces {
         override
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 
     function modifierOrderCorrect02()
         private
@@ -445,7 +424,7 @@ interface FunctionInterfaces {
         override
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 
     function modifierOrderIncorrect01()
         public
@@ -454,7 +433,7 @@ interface FunctionInterfaces {
         override
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 
     function modifierOrderIncorrect02()
         external
@@ -462,7 +441,7 @@ interface FunctionInterfaces {
         override
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 
     function modifierOrderIncorrect03()
         internal
@@ -470,7 +449,7 @@ interface FunctionInterfaces {
         virtual
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 
     function modifierOrderIncorrect04()
         external
@@ -478,7 +457,7 @@ interface FunctionInterfaces {
         override
         modifier1
         modifier2
-        returns (uint256);
+        returns (uint);
 }
 
 contract FunctionDefinitions {
@@ -496,7 +475,7 @@ contract FunctionDefinitions {
         a = 1;
     }
 
-    function oneParam(uint256 x) {
+    function oneParam(uint x) {
         a = 1;
     }
 
@@ -504,21 +483,21 @@ contract FunctionDefinitions {
         a = 1;
     }
 
-    function oneReturn() returns (uint256 y1) {
+    function oneReturn() returns (uint y1) {
         a = 1;
     }
 
     function manyParams(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     ) {
         a = 1;
     }
@@ -540,40 +519,34 @@ contract FunctionDefinitions {
 
     function manyReturns()
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         )
     {
         a = 1;
     }
 
     function someParamsSomeModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     ) modifier1 modifier2 modifier3 {
         a = 1;
     }
 
     function someParamsSomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
-    )
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        )
-    {
+        uint x1,
+        uint x2,
+        uint x3
+    ) returns (uint y1, uint y2, uint y3) {
         a = 1;
     }
 
@@ -581,36 +554,23 @@ contract FunctionDefinitions {
         modifier1
         modifier2
         modifier3
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        )
+        returns (uint y1, uint y2, uint y3)
     {
         a = 1;
     }
 
     function someParamSomeModifiersSomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
-    )
-        modifier1
-        modifier2
-        modifier3
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        )
-    {
+        uint x1,
+        uint x2,
+        uint x3
+    ) modifier1 modifier2 modifier3 returns (uint y1, uint y2, uint y3) {
         a = 1;
     }
 
     function someParamsManyModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     )
         modifier1
         modifier2
@@ -627,73 +587,67 @@ contract FunctionDefinitions {
     }
 
     function someParamsManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3
+        uint x1,
+        uint x2,
+        uint x3
     )
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         )
     {
         a = 1;
     }
 
     function manyParamsSomeModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     ) modifier1 modifier2 modifier3 {
         a = 1;
     }
 
     function manyParamssomeReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
-    )
-        returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3
-        )
-    {
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
+    ) returns (uint y1, uint y2, uint y3) {
         a = 1;
     }
 
     function manyParamsManyModifiers(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         public
         modifier1
@@ -711,44 +665,44 @@ contract FunctionDefinitions {
     }
 
     function manyParamsManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         )
     {
         a = 1;
     }
 
     function manyParamsManyModifiersManyReturns(
-        uint256 x1,
-        uint256 x2,
-        uint256 x3,
-        uint256 x4,
-        uint256 x5,
-        uint256 x6,
-        uint256 x7,
-        uint256 x8,
-        uint256 x9,
-        uint256 x10
+        uint x1,
+        uint x2,
+        uint x3,
+        uint x4,
+        uint x5,
+        uint x6,
+        uint x7,
+        uint x8,
+        uint x9,
+        uint x10
     )
         modifier1
         modifier2
@@ -761,16 +715,16 @@ contract FunctionDefinitions {
         modifier9
         modifier10
         returns (
-            uint256 y1,
-            uint256 y2,
-            uint256 y3,
-            uint256 y4,
-            uint256 y5,
-            uint256 y6,
-            uint256 y7,
-            uint256 y8,
-            uint256 y9,
-            uint256 y10
+            uint y1,
+            uint y2,
+            uint y3,
+            uint y4,
+            uint y5,
+            uint y6,
+            uint y7,
+            uint y8,
+            uint y9,
+            uint y10
         )
     {
         a = 1;
@@ -783,7 +737,7 @@ contract FunctionDefinitions {
         override
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
@@ -816,7 +770,7 @@ contract FunctionDefinitions {
         override
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
@@ -828,7 +782,7 @@ contract FunctionDefinitions {
         override
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
@@ -839,7 +793,7 @@ contract FunctionDefinitions {
         override
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
@@ -850,7 +804,7 @@ contract FunctionDefinitions {
         virtual
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
@@ -861,12 +815,14 @@ contract FunctionDefinitions {
         override
         modifier1
         modifier2
-        returns (uint256)
+        returns (uint)
     {
         a = 1;
     }
 
     fallback() external payable virtual {}
+
+    fallback(bytes calldata _input) external {}
 
     receive() external payable virtual {}
 }
