@@ -10,9 +10,13 @@ git pull
 npm i
 
 npm run test:all
+
+npm run build
+
+npm run test:standalone
 ```
 
-- Create a branch with the name of the new version number, e.g.: `git checkout -b 1.0.0-beta.4`
+- Create a branch with the name of the new version number, e.g.: `git checkout -b 1.1.0`
 
 - Bump the version in the package.json file
 
@@ -36,4 +40,4 @@ git push
 
 - Once the new version is published, add a new release in GitHub; https://github.com/prettier-solidity/prettier-plugin-solidity/releases/new
 
-- The tag version and the name should be prefixed by a `v` followed by the latest published version number; e.g.: `v1.0.0-beta.4`
+- The tag version and the name should be prefixed by a `v` followed by the latest published version number; e.g.: `v1.1.0`

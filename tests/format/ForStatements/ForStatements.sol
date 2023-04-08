@@ -39,5 +39,10 @@ contract ForStatements {
 
         for (; ; i++) {
         }
+
+        for ((uint key, uint value) : a > 0) {
+            a--;
+            break;
+        }
     }
 }

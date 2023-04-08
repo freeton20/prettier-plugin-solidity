@@ -167,4 +167,16 @@ contract FunctionDefinitions {
   fallback() external payable virtual {}
   fallback() external {}
   receive() external payable virtual {}
+
+  onBounce (TvmSlice body) external {}  
+
+  onTickTock (TvmSlice isTock) external {
+    
+  }
+
+  function getCost(uint x) public pure responsible returns (uint) {
+        uint cost = x == 0 ? 111 : 222;
+        // return cost and set option for outbound internal message.
+        return{value: 0, bounce: false, flag: 64} cost;
+    }
 }

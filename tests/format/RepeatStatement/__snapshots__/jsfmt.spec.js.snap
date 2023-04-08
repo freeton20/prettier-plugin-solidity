@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RepeatStatement.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+contract RepeatStatement {
+   uint static a;
+   function func() internal {        
+        TvmCell c;
+        repeat (3) {      
+            uint a =       1;     
+        }        
+    }
+
+}
+=====================================output=====================================
+contract RepeatStatement {
+    uint static a;
+
+    function func() internal {
+        TvmCell c;
+        repeat (3) {
+            uint a = 1;
+        }
+    }
+}
+
+================================================================================
+`;

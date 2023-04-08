@@ -100,6 +100,33 @@ contract Bug {
 ================================================================================
 `;
 
+exports[`Issue385.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+contract Issue385 {
+  function emptyTryCatch() {
+            try{
+            } catch {
+                revert("BService.delegatecall.assign:undefined");
+            }
+  }
+}
+
+=====================================output=====================================
+contract Issue385 {
+    function emptyTryCatch() {
+        try {} catch {
+            revert("BService.delegatecall.assign:undefined");
+        }
+    }
+}
+
+================================================================================
+`;
+
 exports[`Issue564.sol format 1`] = `
 ====================================options=====================================
 parsers: ["solidity-parse"]

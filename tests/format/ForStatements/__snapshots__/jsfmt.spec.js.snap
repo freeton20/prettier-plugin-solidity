@@ -47,6 +47,11 @@ contract ForStatements {
 
         for (; ; i++) {
         }
+
+        for ((uint key, uint value) : a > 0) {
+            a--;
+            break;
+        }
     }
 }
 
@@ -101,6 +106,11 @@ contract ForStatements {
         for (; i < 100; ) {}
 
         for (; ; i++) {}
+
+        for ((uint key, uint value): a > 0) {
+            a--;
+            break;
+        }
     }
 }
 

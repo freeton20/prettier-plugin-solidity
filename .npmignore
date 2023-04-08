@@ -1,10 +1,10 @@
 .editorconfig
 .github/
-.npmignore
-.travis.yml
 CONTRIBUTING.md
 tests/
 assets/
 contracts
 .vscode
 solidityTests
+*.md/
+!README.md

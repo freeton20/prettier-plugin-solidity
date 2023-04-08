@@ -25,7 +25,7 @@ contract ModifierDefinitions {
         uint b,
         uint c
     ) {}
-    modifier test() virtual
+    modifier test() virtual;
     modifier test() virtual {}
 }
 

@@ -14,6 +14,7 @@ const {
 const functionName = (node, options) => {
   if (node.isConstructor && !node.name) return 'constructor';
   if (node.isOnBounce && !node.name) return 'onBounce';
+  if (node.isOnTickTock && !node.name) return 'onTikTock';
   if (node.name) return `function ${node.name}`;
   if (node.isReceiveEther) return 'receive';
   // The parser doesn't give us any information about the keyword used for the

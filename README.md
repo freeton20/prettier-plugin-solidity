@@ -18,6 +18,8 @@ A [Prettier plugin](https://prettier.io/docs/en/plugins.html) for automatically 
 
 ## Installation and usage
 
+### Using in NodeJS
+
 Install both `prettier` and `prettier-plugin-solidity`:
 
 ```Bash
@@ -52,12 +54,43 @@ You can add a script to your package.json for running prettier on all your contr
 "lint": "prettier --list-different 'contracts/**/*.sol'"
 ```
 
+> Prettier Solidity only works with valid code. If there is a syntax error, nothing will be done and a parser error will be thrown.
+
+### Using in the Browser
+
+_Added in v1.1.0_
+
+To use this package in the browser, you need to load Prettier's standalone bundle before loading the build provided in this package.
+
+```html
+<script src="https://unpkg.com/prettier@latest"></script>
+<script src="https://unpkg.com/prettier-plugin-solidity@latest"></script>
+```
+
+Prettier's unpkg field points to `https://unpkg.com/prettier/standalone.js`, in a similar way this plugin points to `https://unpkg.com/prettier-plugin-solidity/dist/standalone.js`.
+
+Once the scripts are loaded you will have access the globals `prettier` and `prettierPlugins`.
+
+We follow Prettier's strategy for populating their plugins in the object `prettierPlugins`, you can load other plugins like `https://unpkg.com/prettier@2.8.0/parser-markdown.js` and Prettier will have access to multiple parsers.
+
+```html
+<script>
+  const originalCode = 'contract Foo {}';
+  const formattedCode = prettier.format(originalCode, {
+    parser: 'solidity-parse',
+    plugins: prettierPlugins
+  });
+</script>
+```
+
+For more details and please have a look at [Prettier's documentation](https://prettier.io/docs/en/browser.html).
+
 ## Configuration File
 
 Prettier provides a flexible system to configure the formatting rules of a project. For more information please refer to the [documentation](https://prettier.io/docs/en/configuration.html).
 The following is the default configuration internally used by this plugin.
 
-```json
+```JSON
 {
   "overrides": [
     {
@@ -67,7 +100,6 @@ The following is the default configuration internally used by this plugin.
         "useTabs": true,
         "singleQuote": false,
         "bracketSpacing": false,
-        "explicitTypes": "always"
       }
     }
   ]
@@ -78,13 +110,11 @@ Note the use of the [overrides property](https://prettier.io/docs/en/configurati
 
 Most options are described in Prettier's [documentation](https://prettier.io/docs/en/options.html).
 
-### Explicit Types
+### Compiler
 
-Solidity provides the aliases `uint` and `int` for `uint256` and `int256` respectively.
-Multiple developers will have different coding styles and prefer one over another.
-This option was added to standardize the code across a project and enforce the usage of one alias over another.
+Many versions of the Solidity compiler have changes that affect how the code should be formatted. This plugin, by default, tries to format the code in the most compatible way that it's possible, but you can use the `compiler` option to nudge it in the right direction.
 
-Valid options:
+One example of this is import directives. Before `0.7.4`, the compiler didn't accept multi-line import statements, so we always format them in a single line. But if you use the `compiler` option to indicate that you are using a version greater or equal than `0.7.4`, the plugin will use multi-line imports when it makes sense.
 
 - `"always"`: Prefer explicit types (`uint256`, `int256`, etc.)
 - `"never"`: Prefer type aliases (`uint`, `int`, etc.).
@@ -150,7 +180,62 @@ If you want more control over other details, you should proceed to install [`pre
 code --install-extension esbenp.prettier-vscode
 ```
 
-Note: By design, Prettier prioritizes a local over a global configuration. If you have a `.prettierrc` file in your porject, your VSCode's default settings or rules in `settings.json` are ignored ([prettier/prettier-vscode#1079](https://github.com/prettier/prettier-vscode/issues/1079)).
+To interact with 3rd party plugins, `prettier-vscode` will look in the project's npm modules, so you'll need to have `prettier` and `prettier-plugin-solidity` in your `package.json`
+
+```Bash
+npm install --save-dev prettier prettier-plugin-solidity
+```
+
+This will allow you to specify the version of the plugin in case you want to use the latest version of the plugin or need to freeze the formatting since new versions of this plugin will implement tweaks on the possible formats.
+
+You'll have to let VSCode what formatter you prefer.
+This can be done by opening the command palette and executing:
+
+```
+>Preferences: Configure Language Specific Settings...
+
+# Select Language
+solidity
+```
+
+Now VSCode's `settings.json` should have this:
+
+```JSON
+{
+  "editor.formatOnSave": true,
+  "[solidity]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}
+```
+
+Note: By design, Prettier prioritizes a local over a global configuration. If you have a `.prettierrc` file in your project, your VSCode's default settings or rules in `settings.json` are ignored ([prettier/prettier-vscode#1079](https://github.com/prettier/prettier-vscode/issues/1079)).
+
+### Pnpm
+
+There's a [known bug](https://github.com/pnpm/pnpm/issues/4700) in Pnpm v7 that prevents Prettier plugins from working out of the box. To make Prettier Solidity work in your project, you have to add the following settings in your `.prettierrc.` file:
+
+```json
+{
+  "plugins": "prettier-plugin-solidity",
+  "overrides": [
+    {
+      "files": "*.sol",
+      "options": {
+        "parser": "solidity-parse"
+      }
+    }
+  ]
+}
+```
+
+Then, if you are using VSCode, you also need to add this to your VSCode settings:
+
+```json
+{
+  "prettier.documentSelectors": ["**/*.sol"]
+}
+```
 
 ## Edge cases
 
@@ -160,7 +245,7 @@ Prettier Solidity does its best to be pretty and consistent, but in some cases i
 
 Modifiers with no arguments are formatted with their parentheses removed, except for constructors. The reason for this is that Prettier Solidity cannot always tell apart a modifier from a base constructor. So modifiers in constructors are not modified. For example, this:
 
-```solidity
+```Solidity
 contract Foo is Bar {
   constructor() Bar() modifier1 modifier2() modifier3(42) {}
 
@@ -170,7 +255,7 @@ contract Foo is Bar {
 
 will be formatted as
 
-```solidity
+```Solidity
 contract Foo is Bar {
   constructor() Bar() modifier1 modifier2() modifier3(42) {}
 
@@ -187,6 +272,20 @@ This fork is based on two others:
 - <a href="https://github.com/pizza-777/parser/tree/ton-solidity-module">Parser</a>
 
 - <a href="https://github.com/pizza-777/antlr/tree/ton-solidity">ANTLR Grammar</a>
+
+## Who's using it?
+
+These are some of the projects using Prettier Solidity:
+
+- [Bancor](https://app.bancor.network)
+- [Gelato](https://gelato.network/)
+- [Gnosis Protocol](https://docs.gnosis.io/protocol/)
+- [PieDAO](https://www.piedao.org/)
+- [Sablier](https://sablier.finance/)
+- [Synthetix](https://www.synthetix.io)
+- [The Sandbox](https://www.sandbox.game/en/)
+- [UMA](https://umaproject.org/)
+- [Uniswap](https://uniswap.org)
 
 ## License
 

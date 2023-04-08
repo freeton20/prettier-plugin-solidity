@@ -16,6 +16,14 @@
     "test:all": "cross-env FULL_TEST=1 c8 jest",
     "test:standalone": "cross-env TEST_STANDALONE=1 FULL_TEST=1 jest"
   },
+  "files": [
+    "src",
+    "dist/standalone.js",
+    "dist/standalone.js.LICENSE.txt",
+    "dist/standalone.js.map",
+    "LICENSE",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pizza-777/prettier-plugin-solidity"
@@ -98,7 +106,7 @@
   "dependencies": {
     "semver": "^7.3.8",
     "solidity-comments-extractor": "^0.0.7",
-    "tvm-solidity-parser": "^0.14.73"
+    "tvm-solidity-parser": "^0.14.74"
   },
   "peerDependencies": {
     "prettier": ">=2.3.0 || >=3.0.0-alpha.0"

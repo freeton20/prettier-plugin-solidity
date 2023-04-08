@@ -7,8 +7,8 @@ const {
 const {
   printComments,
   printPreservingEmptyLines,
-  printSeparatedList,
-  printSeparatedItem
+  printSeparatedItem,
+  printSeparatedList
 } = require('../common/printer-helpers');
 
 const inheritance = (node, path, print) =>

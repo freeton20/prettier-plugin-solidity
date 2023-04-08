@@ -112,8 +112,7 @@ contract Comments12 {
       allowSubdomainsToMint: true, // test4
       wasAllowedToSubdomainMintOnCreation: true
     });
-
-           }
+  }
 }
 
 contract Comments13 {

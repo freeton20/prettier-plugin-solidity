@@ -1,4 +1,4 @@
-/* This file was automatically generated on 1621622090.034 */
+/* This file was automatically generated on 1666691919.885 */
 
 /* eslint-disable global-require */
 
@@ -13,6 +13,7 @@ module.exports = {
   AssemblyIf: require('./AssemblyIf'),
   AssemblyLocalDefinition: require('./AssemblyLocalDefinition'),
   AssemblyMemberAccess: require('./AssemblyMemberAccess'),
+  AssemblyStackAssignment: require('./AssemblyStackAssignment'),
   AssemblySwitch: require('./AssemblySwitch'),
   BinaryOperation: require('./BinaryOperation'),
   Block: require('./Block'),
@@ -21,6 +22,7 @@ module.exports = {
   BreakStatement: require('./BreakStatement'),
   CatchClause: require('./CatchClause'),
   Conditional: require('./Conditional'),
+  Continue: require('./Continue'),
   ContinueStatement: require('./ContinueStatement'),
   ContractDefinition: require('./ContractDefinition'),
   CustomErrorDefinition: require('./CustomErrorDefinition'),
