@@ -6,23 +6,25 @@ parsers: ["solidity-parse"]
 printWidth: 80
                                                                                 | printWidth
 =====================================input======================================
-pragma ever-solidity >= 0.67.0;
-
 contract TryCatch {
   function t() public {
+    //comment
     try {
-    
-    }catch(variant value, uint number) { 
-    
+    // comment
+    }catch(variant value, /* comment */ uint number) { 
+    //comment
     }
   }
 }
 =====================================output=====================================
-pragma ever-solidity >=0.67.0;
-
 contract TryCatch {
     function t() public {
-        try {} catch (variant value, uint256 number) {}
+        //comment
+        try {
+            // comment
+        } catch (variant value, /* comment */ uint number) {
+            //comment
+        }
     }
 }
 

@@ -15,7 +15,7 @@ const languages = [
     color: '#AA6746',
     aceMode: 'text',
     tmScope: 'source.ton-solidity',
-    extensions: ['.sol','.tsol'],
+    extensions: ['.sol', '.tsol'],
     parsers: ['solidity-parse'],
     vscodeLanguageIds: ['ton-solidity']
   }

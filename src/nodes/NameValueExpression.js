@@ -4,7 +4,7 @@ const NameValueExpression = {
     path.call(print, 'arguments'),
     '}',
     ' ',
-    path.call(print, 'expression'),
+    path.call(print, 'expression')
   ]
 };
 

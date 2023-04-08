@@ -22,7 +22,7 @@ const options = {
     since: '1.0.0',
     category: CATEGORY_GLOBAL,
     type: 'boolean',
-    default: true,
+    default: false,
     description: 'Indent with tabs instead of spaces.'
   },
   bracketSpacing: {
@@ -39,26 +39,6 @@ const options = {
     type: 'boolean',
     default: false,
     description: 'Use single quotes instead of double quotes.'
-  },
-  explicitTypes: {
-    category: CATEGORY_SOLIDITY,
-    type: 'choice',
-    default: 'always',
-    description: 'Change when type aliases are used.',
-    choices: [
-      {
-        value: 'always',
-        description: 'Prefer explicit types (`uint256`, `int256`, etc.)'
-      },
-      {
-        value: 'never',
-        description: 'Prefer type aliases (`uint`, `int`, etc.)'
-      },
-      {
-        value: 'preserve',
-        description: 'Respect the type used by the developer.'
-      }
-    ]
   },
   compiler: {
     category: CATEGORY_SOLIDITY,

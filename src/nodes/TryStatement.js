@@ -22,7 +22,7 @@ const TryStatement = {
   print: ({ path, print }) => {
     let parts = [
       'try',
-      ' ',
+      ' '
       // group(
       //   printSeparatedItem(path.call(print, 'expression'), {
       //     firstSeparator: line

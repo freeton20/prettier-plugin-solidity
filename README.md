@@ -1,6 +1,7 @@
 # prettier-plugin-solidity
 
 ---
+
 **NOTE**
 
 This is the fork of the Ethereum-solidity plugin for prettier. This plugin works with Everscale Solidity (or ton-solidity)
@@ -62,7 +63,7 @@ The following is the default configuration internally used by this plugin.
     {
       "files": "*.sol",
       "options": {
-        "printWidth": 80,        
+        "printWidth": 80,
         "useTabs": true,
         "singleQuote": false,
         "bracketSpacing": false,

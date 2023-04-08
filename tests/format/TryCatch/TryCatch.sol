@@ -1,11 +1,10 @@
-pragma ever-solidity >= 0.67.0;
-
 contract TryCatch {
   function t() public {
+    //comment
     try {
-    
-    }catch(variant value, uint number) { 
-    
+    // comment
+    }catch(variant value, /* comment */ uint number) { 
+    //comment
     }
   }
 }

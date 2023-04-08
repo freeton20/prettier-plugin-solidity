@@ -120,7 +120,8 @@ contract Comments12 {
       allowSubdomainsToMint: true, // test4
       wasAllowedToSubdomainMintOnCreation: true
     });
-  }
+
+           }
 }
 
 contract Comments13 {
@@ -244,9 +245,7 @@ contract Comments8 {
 
 contract Comments9 {
     function someFunction() {
-        if (something)
-            // a comment
-            f();
+        if (something) f();
         else {}
     }
 }

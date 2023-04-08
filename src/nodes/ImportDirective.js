@@ -5,8 +5,8 @@ const {
 } = require('prettier');
 const semver = require('semver');
 
-const printSeparatedList = require('./print-separated-list');
-const { printString } = require('../prettier-comments/common/util');
+const { printSeparatedList } = require('../common/printer-helpers');
+const { printString } = require('../common/util');
 
 const ImportDirective = {
   print: ({ node, options }) => {

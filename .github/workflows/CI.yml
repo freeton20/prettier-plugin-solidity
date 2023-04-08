@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - tests
   pull_request:
     branches:
       - '*'
@@ -28,12 +28,58 @@ jobs:
       - name: lint
         run: npm run lint
 
+  test_bundle:
+    name: Test production
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Install
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Run tests
+        run: npm run test:standalone
+
+  test_prettier_v3:
+    name: Prettier V3
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        id: cache
+        with:
+          path: |
+            node_modules
+          key: ${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+      - name: Install
+        run: npm install
+      - name: Build with Prettier V2
+        run: npm run build
+      - name: Upgrade Prettier to V3
+        run: npm install prettier@3.0.0-alpha.4
+      - name: Run tests
+        run: npm run test:all
+      - name: Run standalone tests
+        run: npm run test:standalone
+
   test_linux:
     name: Test on Linux with Node ${{ matrix.node }}
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14, 16]
+        node: [14, 16, 18]
     steps:
       - uses: actions/setup-node@v1
         with:

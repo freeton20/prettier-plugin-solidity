@@ -4,7 +4,7 @@ const {
   }
 } = require('prettier');
 
-const printSeparatedList = require('./print-separated-list');
+const { printSeparatedList } = require('../common/printer-helpers');
 
 const indexed = (node) => (node.isIndexed ? ' indexed' : '');
 
@@ -41,18 +41,18 @@ const VariableDeclaration = {
   print: ({ node, path, print }) =>
     node.typeName
       ? group([
-        path.call(print, 'typeName'),
-        indent([
-          indexed(node),
-          visibility(node),
-          constantKeyword(node),
-          storageLocation(node),
-          immutable(node),
-          isStatic(node),
-          override(node, path, print),
-          name(node)
+          path.call(print, 'typeName'),
+          indent([
+            indexed(node),
+            visibility(node),
+            constantKeyword(node),
+            storageLocation(node),
+            immutable(node),
+            isStatic(node),
+            override(node, path, print),
+            name(node)
+          ])
         ])
-      ])
       : node.name
 };
 

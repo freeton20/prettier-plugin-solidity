@@ -26,7 +26,6 @@ contract Immutable {
         return _other.balance > maxBalance;
     }
 }
-
 =====================================output=====================================
 pragma solidity >0.6.4 <0.7.0;
 
