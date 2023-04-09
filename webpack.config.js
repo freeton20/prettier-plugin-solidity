@@ -19,7 +19,7 @@ module.exports = (webpackEnv) => {
     // We tell webpack to use the browser friendly package.
     resolve: {
       alias: {
-        '@solidity-parser/parser': '@solidity-parser/parser/dist/index.iife.js'
+        'tvm-solidity-parser': 'tvm-solidity-parser/dist/index.iife.js'
       }
     },
 
@@ -28,7 +28,7 @@ module.exports = (webpackEnv) => {
         {
           // We tell webpack to append "module.exports = SolidityParser;" at the
           // end of the file.
-          test: require.resolve('@solidity-parser/parser/dist/index.iife.js'),
+          test: require.resolve('tvm-solidity-parser/dist/index.iife.js'),
           loader: 'exports-loader',
           options: {
             type: 'commonjs',

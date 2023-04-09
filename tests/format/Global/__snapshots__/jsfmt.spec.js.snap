@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Global.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+struct S {
+	           uint a;
+}
+
+function globalFunc(S s) {
+
+}
+
+uint8 constant MIN_QALIFICATION_SCORE =        10;
+
+using Name for S global; 
+
+library Name {
+	
+}
+=====================================output=====================================
+struct S {
+    uint a;
+}
+
+function globalFunc(S s) {}
+
+uint8 constant MIN_QALIFICATION_SCORE = 10;
+
+using Name for S global;
+
+library Name {}
+
+================================================================================
+`;

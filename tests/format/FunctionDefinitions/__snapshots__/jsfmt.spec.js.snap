@@ -840,7 +840,7 @@ contract FunctionDefinitions {
 
     onBounce(TvmSlice body) external {}
 
-    onTikTock(TvmSlice isTock) external {}
+    onTickTock(TvmSlice isTock) external {}
 
     function getCost(uint x) public pure responsible returns (uint) {
         uint cost = x == 0 ? 111 : 222;
