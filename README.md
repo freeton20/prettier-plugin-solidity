@@ -4,7 +4,7 @@
 
 **NOTE**
 
-This is the fork of the Ethereum-solidity plugin for prettier. This plugin works with Everscale Solidity (or ton-solidity)
+This is the fork of the Ethereum-solidity plugin for prettier. This plugin works with Everscale Solidity (or ton-solidity). Works with `.sol` and `.tsol` files. It's not compatible with Ethereum Solidity.
 
 ---
 
@@ -31,27 +31,27 @@ Run prettier in your contracts:
 1. Format all contracts
 
 ```Bash
-npx prettier --write 'contracts/**/*.sol'
+npx prettier --write 'contracts/**/*.{tsol,sol}'
 ```
 
 2. Format concrete contract
 
 ```Bash
-npx prettier --write 'fileName.sol'
+npx prettier --write 'fileName.{tsol,sol}'
 ```
 
 You can add a script to your package.json for running prettier on all your contracts:
 
 ```Bash
 "scripts": {
-   "format": "prettier --write 'contracts/**/*.sol'"
+   "format": "prettier --write 'contracts/**/*.{tsol,sol}'"
   }
 ```
 
 You can add a script to your package.json for running prettier on all your contracts:
 
 ```Bash
-"lint": "prettier --list-different 'contracts/**/*.sol'"
+"lint": "prettier --list-different 'contracts/**/*.{tsol,sol}'"
 ```
 
 > Prettier Solidity only works with valid code. If there is a syntax error, nothing will be done and a parser error will be thrown.
@@ -94,7 +94,7 @@ The following is the default configuration internally used by this plugin.
 {
   "overrides": [
     {
-      "files": "*.sol",
+      "files": "*.{tsol,sol}",
       "options": {
         "printWidth": 80,
         "useTabs": true,
@@ -109,12 +109,6 @@ The following is the default configuration internally used by this plugin.
 Note the use of the [overrides property](https://prettier.io/docs/en/configuration.html#configuration-overrides) which allows for multiple configurations in case there are other languages in the project (i.e. JavaScript, JSON, Markdown).
 
 Most options are described in Prettier's [documentation](https://prettier.io/docs/en/options.html).
-
-### Compiler
-
-Many versions of the Solidity compiler have changes that affect how the code should be formatted. This plugin, by default, tries to format the code in the most compatible way that it's possible, but you can use the `compiler` option to nudge it in the right direction.
-
-One example of this is import directives. Before `0.7.4`, the compiler didn't accept multi-line import statements, so we always format them in a single line. But if you use the `compiler` option to indicate that you are using a version greater or equal than `0.7.4`, the plugin will use multi-line imports when it makes sense.
 
 - `"always"`: Prefer explicit types (`uint256`, `int256`, etc.)
 - `"never"`: Prefer type aliases (`uint`, `int`, etc.).
@@ -188,27 +182,6 @@ npm install --save-dev prettier prettier-plugin-solidity
 
 This will allow you to specify the version of the plugin in case you want to use the latest version of the plugin or need to freeze the formatting since new versions of this plugin will implement tweaks on the possible formats.
 
-You'll have to let VSCode what formatter you prefer.
-This can be done by opening the command palette and executing:
-
-```
->Preferences: Configure Language Specific Settings...
-
-# Select Language
-solidity
-```
-
-Now VSCode's `settings.json` should have this:
-
-```JSON
-{
-  "editor.formatOnSave": true,
-  "[solidity]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
-}
-```
-
 Note: By design, Prettier prioritizes a local over a global configuration. If you have a `.prettierrc` file in your project, your VSCode's default settings or rules in `settings.json` are ignored ([prettier/prettier-vscode#1079](https://github.com/prettier/prettier-vscode/issues/1079)).
 
 ### Pnpm
@@ -220,7 +193,7 @@ There's a [known bug](https://github.com/pnpm/pnpm/issues/4700) in Pnpm v7 that 
   "plugins": "prettier-plugin-solidity",
   "overrides": [
     {
-      "files": "*.sol",
+      "files": "*.{tsol,sol}", 
       "options": {
         "parser": "solidity-parse"
       }
@@ -233,7 +206,7 @@ Then, if you are using VSCode, you also need to add this to your VSCode settings
 
 ```json
 {
-  "prettier.documentSelectors": ["**/*.sol"]
+  "prettier.documentSelectors": ["**/*.{tsol,sol}"]
 }
 ```
 
@@ -272,20 +245,6 @@ This fork is based on two others:
 - <a href="https://github.com/pizza-777/parser/tree/ton-solidity-module">Parser</a>
 
 - <a href="https://github.com/pizza-777/antlr/tree/ton-solidity">ANTLR Grammar</a>
-
-## Who's using it?
-
-These are some of the projects using Prettier Solidity:
-
-- [Bancor](https://app.bancor.network)
-- [Gelato](https://gelato.network/)
-- [Gnosis Protocol](https://docs.gnosis.io/protocol/)
-- [PieDAO](https://www.piedao.org/)
-- [Sablier](https://sablier.finance/)
-- [Synthetix](https://www.synthetix.io)
-- [The Sandbox](https://www.sandbox.game/en/)
-- [UMA](https://umaproject.org/)
-- [Uniswap](https://uniswap.org)
 
 ## License
 
