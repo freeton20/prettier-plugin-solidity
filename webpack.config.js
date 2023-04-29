@@ -20,6 +20,9 @@ module.exports = (webpackEnv) => {
     resolve: {
       alias: {
         'tvm-solidity-parser': 'tvm-solidity-parser/dist/index.iife.js'
+      },
+      fallback: {
+        util: false
       }
     },
 

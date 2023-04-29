@@ -1,4 +1,10 @@
-# prettier-plugin-solidity
+# prettier-plugin-tvmsolidity
+
+<p align="center">
+  <a href="https://github.com/venom-blockchain/developer-program">
+    <img src="https://raw.githubusercontent.com/venom-blockchain/developer-program/main/vf-dev-program.png" alt="Logo" width="366.8" height="146.4">
+  </a>
+</p>
 
 ---
 
@@ -8,7 +14,7 @@ This is the fork of the Ethereum-solidity plugin for prettier. This plugin works
 
 ---
 
-[![Telegram](/assets/telegram-badge.svg)](https://t.me/tonsolidity)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![npm version](https://badge.fury.io/js/prettier-plugin-tvmsolidity.svg)](https://badge.fury.io/js/prettier-plugin-tvmsolidity) [![Telegram](/assets/telegram-badge.svg)](https://t.me/tonsolidity)
 
 <p align="center">
   <img width="375" height="375" src="https://user-images.githubusercontent.com/26024499/161311294-fcd187b2-0366-418d-a89b-96848e6adb15.png">
