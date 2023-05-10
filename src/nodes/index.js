@@ -80,5 +80,6 @@ module.exports = {
   UsingForDeclaration: require('./UsingForDeclaration'),
   VariableDeclaration: require('./VariableDeclaration'),
   VariableDeclarationStatement: require('./VariableDeclarationStatement'),
+  VectorTypeName: require('./VectorTypeName'),
   WhileStatement: require('./WhileStatement')
 };
