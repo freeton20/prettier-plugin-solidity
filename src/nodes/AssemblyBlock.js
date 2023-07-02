@@ -1,13 +1,12 @@
 const {
   doc: {
-    builders: { hardline }
+    builders: { hardline, join }
   }
 } = require('prettier');
 
 const {
   printComments,
-  printPreservingEmptyLines,
-  printSeparatedItem
+  printSeparatedItem,
 } = require('../common/printer-helpers');
 
 const AssemblyBlock = {
@@ -15,10 +14,10 @@ const AssemblyBlock = {
     '{',
     printSeparatedItem(
       [
-        printPreservingEmptyLines(path, 'operations', options, print),
+        join([',', hardline], path.map(print, 'operations')),
         printComments(node, path, options)
       ],
-      { firstSeparator: hardline, grouped: false }
+      { firstSeparator: hardline, lastSeparator: [',', hardline], grouped: false }
     ),
     '}'
   ]

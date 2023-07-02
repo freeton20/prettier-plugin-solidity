@@ -1,6 +1,6 @@
 {
   "name": "prettier-plugin-tvmsolidity",
-  "version": "1.1.31",
+  "version": "1.1.32",
   "description": "A Prettier Plugin for automatically formatting your Everscale Solidity code.",
   "main": "src",
   "scripts": {
@@ -106,7 +106,7 @@
   "dependencies": {
     "semver": "^7.5.0",
     "solidity-comments-extractor": "^0.0.7",
-    "tvm-solidity-parser": "^0.14.75"
+    "tvm-solidity-parser": "^0.14.76"
   },
   "peerDependencies": {
     "prettier": ">=2.3.0 || >=3.0.0-alpha.0"

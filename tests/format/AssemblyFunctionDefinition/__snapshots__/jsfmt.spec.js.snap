@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AssemblyFunctionDefinition.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+pragma ever-solidity >= 0.70.0;
+
+function checkOverflow(uint a, uint b) assembly pure returns (bool) {
+    //this is a comment
+                    "QADD",
+    "ISNAN",
+    "NOT",
+}
+
+function incomingValue() assembly pure returns (uint) {
+    ".blob xF82B", // it's opcode INCOMINGVALUE 
+}
+=====================================output=====================================
+pragma ever-solidity >=0.70.0;
+
+function checkOverflow(uint a, uint b) assembly pure returns (bool){
+    //this is a comment
+    "QADD",
+    "ISNAN",
+    "NOT",
+}
+
+function incomingValue() assembly pure returns (uint){
+    ".blob xF82B", // it's opcode INCOMINGVALUE
+}
+
+================================================================================
+`;
