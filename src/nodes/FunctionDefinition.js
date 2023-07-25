@@ -1,9 +1,9 @@
 const {
   doc: {
     builders: { dedent, group, indent, join, line }
-  },
-  util: { getNextNonSpaceNonCommentCharacterIndex }
+  }
 } = require('prettier');
+const { getNextNonSpaceNonCommentCharacter } = require('../common/util');
 
 const {
   printComments,
@@ -43,12 +43,10 @@ const parameters = (parametersType, node, path, print, options) => {
       path,
       options,
       (comment) =>
-        options.originalText.charAt(
-          getNextNonSpaceNonCommentCharacterIndex(
-            options.originalText,
-            comment,
-            options.locEnd
-          )
+        getNextNonSpaceNonCommentCharacter(
+          options.originalText,
+          comment,
+          options.locEnd
         ) === ')'
     );
     return parameterComments.length > 0
