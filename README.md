@@ -37,27 +37,27 @@ Run prettier in your contracts:
 1. Format all contracts
 
 ```Bash
-npx prettier --write 'contracts/**/*.{tsol,sol}'
+npx prettier --write --plugin=prettier-plugin-tvmsolidity 'contracts/**/*.{tsol,sol}'
 ```
 
 2. Format concrete contract
 
 ```Bash
-npx prettier --write 'fileName.{tsol,sol}'
+npx prettier --write --plugin=prettier-plugin-tvmsolidity 'fileName.{tsol,sol}'
 ```
 
 You can add a script to your package.json for running prettier on all your contracts:
 
 ```Bash
 "scripts": {
-   "format": "prettier --write 'contracts/**/*.{tsol,sol}'"
+   "format": "prettier --write --plugin=prettier-plugin-solidity 'contracts/**/*.{tsol,sol}'"
   }
 ```
 
 You can add a script to your package.json for running prettier on all your contracts:
 
 ```Bash
-"lint": "prettier --list-different 'contracts/**/*.{tsol,sol}'"
+"lint": "prettier --list-different --plugin=prettier-plugin-solidity 'contracts/**/*.{tsol,sol}'"
 ```
 
 > Prettier Solidity only works with valid code. If there is a syntax error, nothing will be done and a parser error will be thrown.
@@ -98,6 +98,7 @@ The following is the default configuration internally used by this plugin.
 
 ```JSON
 {
+  "plugins": ["prettier-plugin-tvmsolidity"],
   "overrides": [
     {
       "files": "*.{tsol,sol}",
@@ -113,6 +114,8 @@ The following is the default configuration internally used by this plugin.
 ```
 
 Note the use of the [overrides property](https://prettier.io/docs/en/configuration.html#configuration-overrides) which allows for multiple configurations in case there are other languages in the project (i.e. JavaScript, JSON, Markdown).
+
+Since Prettier v3.0.0, the plugin search feature has been removed so we encourage adding our plugin to the configuration file.
 
 Most options are described in Prettier's [documentation](https://prettier.io/docs/en/options.html).
 
@@ -192,21 +195,7 @@ Note: By design, Prettier prioritizes a local over a global configuration. If yo
 
 ### Pnpm
 
-There's a [known bug](https://github.com/pnpm/pnpm/issues/4700) in Pnpm v7 that prevents Prettier plugins from working out of the box. To make Prettier Solidity work in your project, you have to add the following settings in your `.prettierrc.` file:
-
-```json
-{
-  "plugins": "prettier-plugin-solidity",
-  "overrides": [
-    {
-      "files": "*.{tsol,sol}", 
-      "options": {
-        "parser": "solidity-parse"
-      }
-    }
-  ]
-}
-```
+To make Prettier Solidity work in your project, you have to add a `.prettierrc` file as shown [here](#configuration-file).
 
 Then, if you are using VSCode, you also need to add this to your VSCode settings:
 
