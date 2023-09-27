@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Enotation.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+contract test {
+  function f() public {
+   uint256 a = 2.3e5;
+        uint256 b = 230e-1;
+  }
+}
+=====================================output=====================================
+contract test {
+    function f() public {
+        uint256 a = 2.3e5;
+        uint256 b = 230e-1;
+    }
+}
+
+================================================================================
+`;
