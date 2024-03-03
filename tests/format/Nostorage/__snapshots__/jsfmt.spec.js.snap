@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Nostorage.sol format 1`] = `
+====================================options=====================================
+parsers: ["solidity-parse"]
+printWidth: 80
+                                                                                | printWidth
+=====================================input======================================
+pragma ever-solidity 0.73.0;
+
+contract NS {
+           uint nostorage a; 
+           uint private nostorage b;
+}
+=====================================output=====================================
+pragma ever-solidity 0.73.0;
+
+contract NS {
+    uint nostorage a;
+    uint private nostorage b;
+}
+
+================================================================================
+`;

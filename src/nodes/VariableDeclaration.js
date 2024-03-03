@@ -24,6 +24,8 @@ const immutable = (node) => (node.isImmutable ? ' immutable' : '');
 
 const isStatic = (node) => (node.isStatic ? ' static' : '');
 
+const isNostorage = (node) => (node.isNostorage ? ' nostorage' : '');
+
 const override = (node, path, print) => {
   if (!node.override) return '';
   if (node.override.length === 0) return [line, 'override'];
@@ -49,6 +51,7 @@ const VariableDeclaration = {
             storageLocation(node),
             immutable(node),
             isStatic(node),
+            isNostorage(node),
             override(node, path, print),
             name(node)
           ])
